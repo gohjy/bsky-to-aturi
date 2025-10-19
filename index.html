@@ -28,7 +28,7 @@
             justify-content: flex-start;
             align-items: stretch;
         }
-        label, .b {
+        .bold {
             font-weight: bold;
         }
         input {
@@ -49,14 +49,14 @@
 <body>
     <h1>Bluesky to AT URI</h1>
     <form id="form">
-        <label for="bsky-url" class="left">Bluesky post URL:</label>
+        <label for="bsky-url" class="left bold">Bluesky post URL:</label>
         <input type="url" id="bsky-url" placeholder="https://bsky.app/profile/futur.blue/post/3lsc2tzfsys2f" required>
-        <input type="submit" class="b" value="Convert">
+        <input type="submit" class="bold" value="Convert">
     </form>
     <br>
     <br>
     <output id="output">
-        <span class="b">AT URI:</span>
+        <span class="bold">AT URI:</span>
         <input readonly id="at-uri" placeholder="at://did:plc:uu5axsmbm2or2dngy4gwchec/app.bsky.feed.post/3lsc2tzfsys2f">
     </output>
 
@@ -71,16 +71,16 @@
             bskyUrlBox.disabled = true;
             atUriBox.value = "Loading...";
             const bskyUrl = bskyUrlBox.value;
+            
             try {
-                const atUri = await bskyToAtUri(bskyUrl);
-                if (!atUri) throw new Error();
-                atUriBox.value = atUri;
-            } catch(e) {
-                console.error(e);
-                atUriBox.value = "Invalid Bluesky URL!";
+                const uri = await bskyToAtUri(bskyUrl);
+                atUriBox.value = uri;
+            } catch({ error, message }) {
+                atUriBox.value = `Error: ${error}: ${message}`;
             }
+
             bskyUrlBox.disabled = false;
-        })
+        });
     </script>
 </body>
 </html>
