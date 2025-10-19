@@ -9,7 +9,7 @@ The function is implemented as an **`async` function**, because it may need to m
 ## Usage
 In your JavaScript (only ES module script is provided):
 ```js
-import bskyToAtUri from "https://cdn.jsdelivr.net/gh/gohjy/bsky-to-aturi@0.2.0/bsky-to-aturi.mjs";
+import bskyToAtUri from "https://cdn.jsdelivr.net/gh/gohjy/bsky-to-aturi@0.2.1/bsky-to-aturi.mjs";
 
 // Later...
 try {
