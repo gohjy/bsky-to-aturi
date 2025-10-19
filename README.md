@@ -31,7 +31,7 @@ if (!uri) {
 
 ## Documentation
 Pass a string to the function in one of the following forms:
-- `https://bsky.app/profile/{handleOrDid}`
+- `https://bsky.app/profile/{handleOrDid}` (will be returned as a `app.bsky.actor.profile/self` URI)
 - `https://bsky.app/profile/{handleOrDid}/post/{postId}`
 
 The hostname need not be `bsky.app`, any syntactically valid hostname will be accepted.
